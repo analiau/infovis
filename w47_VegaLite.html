@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MakeOverMonday W47</title>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.17.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.17.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.12.2"></script>
+  </head>
+  <body>
+    <div id="vis"></div>
+
+    <script type="text/javascript">
+      var yourVlSpec = {
+        "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "data": {"url": "https://raw.githubusercontent.com/analiau/infovis/gh-pages/MakeOverMondayW47.csv"},
+   "layer": [
+    {
+  "mark": "bar",
+  "encoding": {
+    "x": 
+        {
+          "timeUnit": "yearmonth", 
+          "field": "Trimestre",
+           "type": "temporal"
+        },
+    "y": {
+          "aggregate": "mean", 
+          "field": "PBI",
+          "type": "quantitative",
+          "title": "PBI",
+          "axis": {
+            "grid": false
+             }
+          }
+    , "color": {"value": "firebrick"}
+  }
+  },
+  {
+      "mark": "line",
+      "encoding": {
+        "x": {
+          "field": "Trimestre",
+          "timeUnit": "yearmonth",
+          "type": "temporal",
+          "title": "Trimestre"
+        },
+        "y": {
+          "aggregate": "mean",
+          "field": "DeudaPublica", 
+          "type": "quantitative",
+          "title": "Deuda Pública"}
+      }
+    }
+    ],
+    "resolve": {"scale": {"y": "independent"}}
+      };
+      vegaEmbed('#vis', yourVlSpec);
+    </script>
+  </body>
+</html>
