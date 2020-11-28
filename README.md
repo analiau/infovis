@@ -13,8 +13,7 @@ https://analiau.github.io/infovis/w47_tableau.html
 </br>
 https://analiau.github.io/infovis/Covid19_v1.html
 
-##VegaLite
-</br>
+## VegaLite
 https://analiau.github.io/infovis/w47_VegaLite.html
 
 ## TimeLine:
