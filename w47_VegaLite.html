@@ -1,24 +1,42 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MakeOverMonday W47</title>
+    <title>MakeOverMonday 2020 W47</title>
     <script src="https://cdn.jsdelivr.net/npm/vega@5.17.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.17.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.12.2"></script>
+<style>
+
+.row {
+  display: flex;
+}
+
+/* Create three equal columns that sits next to each other */
+.column {
+  flex: 50%;
+  padding: 5px;
+}
+
+</style>
+
   </head>
   <body>
+  <H2>MakeOverMonday 2020 w47</H1>
+  <H3>USA - Deuda Pública vs PBI</H2>
+  <div class="row">
+  <div class="column">
     <div id="vis"></div>
-
     <script type="text/javascript">
       var yourVlSpec = {
         "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "width": "container", 
-  "height": "container",
+  "width": 400, 
+  "height": 400,
   "data": {"url": "https://raw.githubusercontent.com/analiau/infovis/gh-pages/MakeOverMondayW47.csv"},
    "layer": [
     {
-  "mark": "bar",
-  "encoding": {
+    "mark": {"type": "bar","width":5, "tooltip":true},
+    
+    "encoding": {
     "x": 
         {
           "timeUnit": "yearmonth", 
@@ -29,16 +47,16 @@
           "aggregate": "mean", 
           "field": "PBI",
           "type": "quantitative",
-          "title": "PBI",
+          "title": "PBI $(mil)",
           "axis": {
             "grid": false
              }
           }
-    , "color": {"value": "firebrick"}
-  }
+    , "color": {"value": "red"}
+   }
   },
   {
-      "mark": "line",
+      "mark": {"type": "line", "tooltip":true},
       "encoding": {
         "x": {
           "field": "Trimestre",
@@ -50,13 +68,76 @@
           "aggregate": "mean",
           "field": "DeudaPublica", 
           "type": "quantitative",
-          "title": "Deuda Pública"}
+          "title": "Deuda Pública $(mil)"}
+        }
       }
-    }
+   
     ],
     "resolve": {"scale": {"y": "independent"}}
       };
       vegaEmbed('#vis', yourVlSpec);
     </script>
+
+  </div>
+  <div class="column">
+     <div id="vis2"></div>
+    <script type="text/javascript">
+      var yourVlSpec2 = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "data": {"url": "https://raw.githubusercontent.com/analiau/infovis/gh-pages/MakeOverMondayW47.csv"},
+  "width":400, "height":400,
+   "layer": [
+    {
+     "mark": {"type": "line", "stroke": "lightgray"},
+     "encoding": {
+     "x": {
+         
+          "field": "PBI",
+          "type": "quantitative",
+          "title": "PBI $(mil)"
+           },
+     "y": {
+          
+          "field": "DeudaPublica",
+          "type": "quantitative",
+          "title": "Deuda Pública $(mil)"
+           }
+    , "order": {"field": "Trimestre", "type": "temporal", "timeUnit":"yearmonth"} 
+    
+   }
+  } ,
+      {
+     "mark": {"type": "circle" ,"tooltip":{"content":"data"}},
+     "encoding": {
+     "x": {
+         
+          "field": "PBI",
+          "type": "quantitative",
+          "title": "PBI $(mil)"
+           },
+     "y": {
+          
+          "field": "DeudaPublica",
+          "type": "quantitative",
+          "title": "Deuda Pública $(mil)"
+           }
+    ,"color": { "field": "Partido",
+     "scale":{
+        "domain":["Demócrata", "Republicano"],
+        "range":["lightblue", "#ed2939"]
+      }
+    }
+   }
+  }
+  ]
+};
+      vegaEmbed('#vis2', yourVlSpec2);
+    </script>
+
+  </div>
+</div>
+
+
   </body>
 </html>
+
