@@ -17,7 +17,7 @@ https://analiau.github.io/infovis/Covid19_v1.html
 https://analiau.github.io/infovis/w47_VegaLite.html
 
 ## Flourish
-https://analiau.github.io/infovis/w47_Flourish.html
+https://analiau.github.io/infovis/W47_Flourish.html
 
 ## TimeLine:
 https://analiau.github.io/infovis/HistoriaFeminismo.html
