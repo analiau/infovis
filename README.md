@@ -21,3 +21,6 @@ https://analiau.github.io/infovis/W47_Flourish.html
 
 ## TimeLine:
 https://analiau.github.io/infovis/HistoriaFeminismo.html
+
+## Trabajo Final:
+https://analiau.github.io/infovis/TrabajoFinal.html
